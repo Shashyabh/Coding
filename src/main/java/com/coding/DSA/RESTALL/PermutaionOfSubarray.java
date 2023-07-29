@@ -16,6 +16,7 @@ public class PermutaionOfSubarray {
 //                System.out.println(result);
 //            }
 //        }
+        System.out.println(allCount(new ArrayList<>(),0,arr));
     }
     private static void allCombination(List<Integer> temp,int index,int[]arr) {
         if(index==arr.length){
@@ -34,7 +35,12 @@ public class PermutaionOfSubarray {
 
     private static int allCount(List<Integer> temp,int index,int[]arr){
         if(index== arr.length){
-            return 1;
+            int num=temp.stream().reduce(0,(sum,i)->sum+i);
+            if(num==10){
+                return 1;
+            }
+            return 0;
+
         }
         int count=0;
         temp.add(arr[index]);

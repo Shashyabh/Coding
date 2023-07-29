@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class PermutationByRecursion {
 
     public static void main(String[] args) {
-        String str="abcde";
+        String str="abc";
 
         //permuation("",str);
 
@@ -26,7 +26,7 @@ public class PermutationByRecursion {
         for(int i=0;i<=p.length();i++){
             String f=p.substring(0,i);
             String s=p.substring(i,p.length());
-            permuation(f+ch+s,up.substring(1));
+            permuation(ch+f+s,up.substring(1));
         }
     }
 

@@ -14,7 +14,7 @@ public class ThreeSum {
     static ArrayList<List<Integer>> threeSum(List<Integer>temp,int[] arr,int k,ArrayList<List<Integer>> res){
 
         if(k== arr.length){
-            res.add(temp);
+            res.add(new ArrayList<>(temp));
             for(List<Integer> a:res){
                 int ch=a.stream().reduce(0,(sum,i)->sum+i);
                 if(ch==0&&a.size()==3){
@@ -27,12 +27,8 @@ public class ThreeSum {
 
         temp.add(arr[k]);
         threeSum(temp,arr,k+1,res);
-
-        res.add(temp);
         temp.remove(temp.size()-1);
-
         threeSum(temp,arr,k+1,res);
-        res.add(temp);
 
         return res;
     }

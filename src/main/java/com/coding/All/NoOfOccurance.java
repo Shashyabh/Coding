@@ -1,6 +1,7 @@
 package com.coding.All;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class NoOfOccurance {
     public static void main(String[] args) {
@@ -22,7 +23,23 @@ public class NoOfOccurance {
             }
         }
         map.entrySet().forEach(entry->{
-            System.out.println(entry.getKey()+" = "+entry.getValue());
+            System.out.println(entry.getKey()+" "+entry.getValue());
         });
+//        final int[] ans = {0,0};
+//        map.entrySet().forEach(entry->{
+//            ans[0] =Math.max(ans[0],entry.getValue());
+//        });
+//        map.entrySet().forEach(entry->{
+//            if(entry.getValue()==ans[0]){
+//                ans[1]=entry.getKey();
+//            }
+//        });
+//        System.out.println(ans[1]);
+
+//        for (Map.Entry<Integer, Integer> it : mpp.entrySet()) {
+//            if (it.getValue() > (n / 2)) {
+//                return it.getKey();
+//            }
+//        }
     }
 }

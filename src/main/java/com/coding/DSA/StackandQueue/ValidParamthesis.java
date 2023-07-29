@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class ValidParamthesis {
     public static void main(String[] args) {
-        String str="(){}{";
+        String str="([]){}[]";
         boolean b=valid(str);
         System.out.println(b);
     }
@@ -33,7 +33,7 @@ public class ValidParamthesis {
                     }
                 }
             }
-
-        }return st.isEmpty();
+        }
+        return st.isEmpty();
     }
 }
