@@ -66,34 +66,59 @@ public class BT {
         }
 
     }
+    public static TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if(root==null || root==p || root==q){
+            return root;
+        }
+        TreeNode left=lowestCommonAncestor(root.left,p,q);
+        TreeNode right=lowestCommonAncestor(root.right,p,q);
+
+        if(left==null){
+            return right;
+        }
+        else if(right==null){
+            return left;
+        }
+        else{
+            return root;
+        }
+    }
+    //          1
+    //        2   3
+    //      4  5 6  7
+    //     8
 
     public static void main(String[] args) {
         TreeNode root=new TreeNode(1);
         root.left = new TreeNode(2);
         root.left.left = new TreeNode(4);
+        root.left.left.left=new TreeNode(8);
         root.left.right = new TreeNode(5);
         root.right = new TreeNode(3);
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(7);
-        List < Integer > pre = new ArrayList<>();
-        List < Integer > in = new ArrayList <> ();
-        List < Integer > post = new ArrayList <> ();
+        System.out.println(lowestCommonAncestor(root,root.left.left.left,root.left.right).val);
+//        List < Integer > pre = new ArrayList<>();
+//        List < Integer > in = new ArrayList <> ();
+//        List < Integer > post = new ArrayList <> ();
+
+
         //allTraversal(root, pre, in , post);
-        sumNumbers(root);
-        System.out.println("The preorder Traversal is : ");
-        for (int nodeVal: pre) {
-            System.out.print(nodeVal + " ");
-        }
-        System.out.println();
-        System.out.println("The inorder Traversal is : ");
-        for (int nodeVal: in ) {
-            System.out.print(nodeVal + " ");
-        }
-        System.out.println();
-        System.out.println("The postorder Traversal is : ");
-        for (int nodeVal: post) {
-            System.out.print(nodeVal + " ");
-        }
+//        sumNumbers(root);
+//        System.out.println("The preorder Traversal is : ");
+//        for (int nodeVal: pre) {
+//            System.out.print(nodeVal + " ");
+//        }
+//        System.out.println();
+//        System.out.println("The inorder Traversal is : ");
+//        for (int nodeVal: in ) {
+//            System.out.print(nodeVal + " ");
+//        }
+//        System.out.println();
+//        System.out.println("The postorder Traversal is : ");
+//        for (int nodeVal: post) {
+//            System.out.print(nodeVal + " ");
+//        }
         System.out.println();
 
     }

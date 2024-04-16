@@ -3,7 +3,7 @@ package com.interview;
 public class New {
     public static void main(String[] args) {
         A a=new A();
-        a.f(Integer.valueOf(5));
+        //a.f(Integer.valueOf(5));
         a.f(6);
     }
 }

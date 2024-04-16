@@ -2,7 +2,7 @@ package com.AdvJava.Java8;
 
 import java.util.*;
 
-public class ComaratorAndComparable {
+public class ComparatorAndComparable {
     public static void main(String[] args) {
 
 //        HashMap<Integer,Student> map=new HashMap<>();
@@ -23,9 +23,9 @@ public class ComaratorAndComparable {
         list.add(new Student(7,"ShashyabhRay"));
 
 
-        //Collections.sort(list);
+        Collections.sort(list);
 
-        Collections.sort(list,(a,b)->a.id-b.id);
+        //Collections.sort(list,(a,b)->a.id-b.id);
         Iterator<Student> it=list.iterator();
         while(it.hasNext()){
             System.out.println(it.next());

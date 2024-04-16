@@ -9,8 +9,8 @@ public class TwoSum {
         for (int a:arr){
             ans^=a;
         }
-        System.out.println(ans);
-       //twoSum(arr);
+        //System.out.println(ans);
+       twoSum(arr);
 
     }
 

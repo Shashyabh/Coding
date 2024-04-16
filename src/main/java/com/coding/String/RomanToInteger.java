@@ -28,7 +28,7 @@ public class RomanToInteger {
 
 
     public static void main(String[] args) {
-        String str="XVIX";
+        String str="CDIXVIX";
         printInt(str);
     }
 }

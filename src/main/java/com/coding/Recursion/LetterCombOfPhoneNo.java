@@ -25,9 +25,7 @@ public class LetterCombOfPhoneNo {
         int n=digits.charAt(i)-'0';
         String currStr=codes[n];
         for(int ind=0;ind<currStr.length();ind++){
-            str=str+currStr.charAt(ind);
-            f(ans,codes,digits,str,i+1);
-            str=str.substring(0,str.length()-1);
+            f(ans,codes,digits,str+currStr.charAt(ind),i+1);
         }
     }
 }

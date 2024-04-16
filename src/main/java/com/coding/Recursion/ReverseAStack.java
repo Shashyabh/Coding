@@ -21,7 +21,7 @@ public class ReverseAStack {
         int tmp=s.pop();
         reverse(s);
         f(s,tmp);
-        System.out.println(s);
+        //System.out.println(s);
     }
     static void f(Stack<Integer> s, int ele){
         if(s.isEmpty()){
