@@ -22,21 +22,27 @@ public class ComparatorAndComparable {
         list.add(new Student(16,"Shashya"));
         list.add(new Student(7,"ShashyabhRay"));
 
-
-        Collections.sort(list);
+        //Collections.sort(list);
+        //Collections.sort(list,new sortById());
 
         //Collections.sort(list,(a,b)->a.id-b.id);
+        //Collections.sort(list,(Student obj1,Student obj2)->obj2.id-obj1.id);
         Iterator<Student> it=list.iterator();
-        while(it.hasNext()){
-            System.out.println(it.next());
+        ListIterator<Student> st= list.listIterator();
+        //ListIterator<Student> st=list.listIterator();
+        while(st.hasNext()){
+            System.out.println(st.next());
         }
+        System.out.println(new String("FB").hashCode());
+        System.out.println(new String("Ea").hashCode());
         // System.out.println(list);
     }
 
     public static class sortById implements Comparator<Student>{
         @Override
         public int compare(Student st1, Student st2){
-            return st1.id-st2.id;
+            return st2.id-st1.id;
+            //return st1.compareTo(st2);
         }
     }
 }
