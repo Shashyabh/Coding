@@ -17,6 +17,9 @@ public class Sorting {
         users.add(new User("bdjjk",19,7291,"ENV"));
         users.add(new User("iwh",32,82927,"SCI"));
 
+        Map<String, Integer> collect4 = users.stream().collect(Collectors.groupingBy(User::getDepartment, Collectors.summingInt(User::getSalary)));
+        System.out.println(collect4);
+
         List<User> collect2 = users.stream().sorted(Comparator.comparing(User::getDepartment).thenComparing(User::getUsername)).collect(Collectors.toList());
         System.out.println("Sorted by Dep "+collect2);
 
@@ -29,9 +32,12 @@ public class Sorting {
         List<User> userList2 = users.stream().sorted(Comparator.comparingInt(User::getSalary)).collect(Collectors.toList());
         System.out.println(userList2.toString());
 
-        String[] str={"abc","abc","ab","abc","ab","abde"};
+        List<User> collect3 = users.stream().sorted(Comparator.comparing(User::getSalary)).collect(Collectors.toList());
+
+        String[] str={"abc","abcdef","ab","abc","ab","abde"};
 
         Map<String, String> collect1 = Arrays.stream(str).collect(Collectors.groupingBy(Function.identity(), Collectors.joining()));
+        System.out.println("Joining "+collect1);
         //System.out.println("Joining");
         Map<String, Long> collect = Arrays.stream(str).collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         for (Map.Entry<String,Long>entry:collect.entrySet()){

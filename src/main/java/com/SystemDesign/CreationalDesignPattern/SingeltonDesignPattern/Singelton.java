@@ -1,4 +1,4 @@
-package com.neww;
+package com.SystemDesign.CreationalDesignPattern.SingeltonDesignPattern;
 
 
 final public class Singelton implements Cloneable{
@@ -7,7 +7,6 @@ final public class Singelton implements Cloneable{
 
     private Singelton(){
         //Reflection code part to resolve the Singelton
-
 
         // Check if an instance already exists
         if (singelton != null) {

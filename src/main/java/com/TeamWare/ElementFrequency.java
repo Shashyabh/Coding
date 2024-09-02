@@ -20,12 +20,27 @@ public class ElementFrequency {
             char[] ch=str.toCharArray();
             Arrays.sort(ch);
             String s=new String(ch);
-            if(!map.containsKey(s)){
-                continue;
+            if(map.containsKey(s)) {
+                System.out.println(str + ": " + map.get(s));
             }
-            System.out.println(str+": "+map.get(s));
-            map.remove(s);
         }
+
+
+
+
+
+
+
+//        for(String str:elements){
+//            char[] ch=str.toCharArray();
+//            Arrays.sort(ch);
+//            String s=new String(ch);
+//            if(!map.containsKey(s)){
+//                continue;
+//            }
+//            System.out.println(str+": "+map.get(s));
+//            map.remove(s);
+//        }
     }
 }
 

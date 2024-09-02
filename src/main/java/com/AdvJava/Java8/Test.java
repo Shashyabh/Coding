@@ -1,6 +1,7 @@
 package com.AdvJava.Java8;
 
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -15,7 +16,8 @@ public class Test {
         users.add(new User("Pankaj",23,4000,"Call Support"));
         users.add(new User("Ramu",22,7000,"HR"));
 
-
+        List<User> collect3 = users.stream().sorted(Comparator.comparing(User::getDepartment).reversed()).collect(Collectors.toList());
+        System.out.println(collect3);
         List<User> collect2 = users.stream().sorted((o1, o2) -> o1.getSalary() - o2.getSalary()).collect(Collectors.toList());
         System.out.println("Sorted users using Lambda "+collect2);
         List<User> userStream = users.stream().sorted(Comparator.comparing(User::getUsername).reversed()).collect(Collectors.toList());
@@ -38,8 +40,6 @@ public class Test {
 
         Optional<User> max = users.stream().max(Comparator.comparing(User::getSalary));
         System.out.println("Max salary of User =>> "+max);
-
-
 
 //      List<String>agee=users.stream().map(ur->ur.toString()).collect(Collectors.toList());
         List<User>agee=users.stream().collect(Collectors.toList());

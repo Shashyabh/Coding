@@ -79,6 +79,22 @@ public class DeleteMiddleNode {
         prev.next=s.next;
     }
 
+    public void deleteAtIndex(int index){
+        //Node temp=head;
+        if(index==1){
+            head=head.next;
+        }
+        Node curr=head;
+        Node prev=head;
+        while(index>1){
+            prev=curr;
+            curr=curr.next;
+            index--;
+        }
+        //System.out.println(prev.val +" "+curr.val);
+        prev.next=curr.next;
+    }
+
     public static void main(String[] args) {
         DeleteMiddleNode sl=new DeleteMiddleNode();
         sl.insert(1);
@@ -87,10 +103,12 @@ public class DeleteMiddleNode {
         sl.insert(4);
         sl.insert(21);
 
-        sl.display();
+//        sl.display();
 //        sl.deleteMidNode();
         //sl.delete();
         //sl.deleteLast();
+        sl.display();
+        sl.deleteAtIndex(2);
         sl.display();
     }
 }

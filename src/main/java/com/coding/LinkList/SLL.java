@@ -8,7 +8,7 @@ public class SLL {
     public SLL(){
         this.size=0;
     }
-    public class Node{
+    public static class Node{
         int val;
         Node next;
         public Node (int val){
@@ -31,7 +31,7 @@ public class SLL {
         return head;
     }
 
-    public void display(Node mid){
+    public static void display(Node head){
         Node temp=head;
         while (temp!=null){
             System.out.print(temp.val+"->");
@@ -80,16 +80,56 @@ public class SLL {
         return curr;
     }
 
+    public static Node modifiedList(int[] nums, Node head) {
+        Node dummy = new Node(0);
+        dummy.next = head;
+
+        Node prev = dummy;
+        Node current = head;
+        while (current != null) {
+            // Check if current node's value exists in nums
+            if (contains(nums, current.val)) {
+                prev.next = current.next; // Skip current node
+            } else {
+                prev = current; // Move prev to current
+            }
+            current = current.next; // Move current to next node
+        }
+
+
+        return dummy.next;
+    }
+
+    private static boolean contains(int[] nums, int val) {
+        for (int num : nums) {
+            if (num == val) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     public static void main(String[] args) {
         Node node=null;
 
         SLL sl=new SLL();
-        node=sl.insert(1);
+//        node=sl.insert(1);
+//        node=sl.insert(2);
+//        node=sl.insert(3);
+
+        node=sl.insert(3);
+        node=sl.insert(3);
         node=sl.insert(2);
-        //node=sl.insert(3);
-        node=sl.insert(0);
-        // node=sl.insert(1);
+        node=sl.insert(9);
+        node=sl.insert(10);
+
+
+
+
+         int nums[]={6,7,10,9,3};
+
+         Node node1=modifiedList(nums,node);
         //sl.insert(3);
         //sl.findMid();
         //sl.findMid(node);

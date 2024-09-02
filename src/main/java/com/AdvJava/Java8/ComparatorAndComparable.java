@@ -1,28 +1,22 @@
 package com.AdvJava.Java8;
 
 import java.util.*;
+import java.util.function.Function;
 
 public class ComparatorAndComparable {
     public static void main(String[] args) {
 
-//        HashMap<Integer,Student> map=new HashMap<>();
-//
-//        map.put(1,new Student(3,"Shashyabh"));
-//        map.put(2,new Student(2,"Shash"));
-//        map.put(3,new Student(15,"Shasi"));
-//        map.put(4,new Student(31,"Shashi"));
-//        map.put(5,new Student(16,"Shashya"));
-//        map.put(6,new Student(7,"ShashyabhRay"));
-
         List<Student> list=new ArrayList<>();
-        list.add(new Student(3,"Shashyabh"));
-        list.add(new Student(2,"Shash"));
-        list.add(new Student(15,"Shasi"));
-        list.add(new Student(31,"Shashi"));
-        list.add(new Student(16,"Shashya"));
-        list.add(new Student(7,"ShashyabhRay"));
+        list.add(new Student(1,"Shashyabh"));
+        list.add(new Student(2,"Ybnhii"));
+        list.add(new Student(15,"echbj"));
+        list.add(new Student(31,"echbj"));
+        list.add(new Student(16,"mnuhb"));
+        list.add(new Student(7,"echbj"));
+        Collections.sort(list,(a,b)->a.id-b.id);
+        Collections.sort(list,new sortByComparator().thenComparing(Comparator.comparing(Student::getId)));
 
-        //Collections.sort(list);
+
         //Collections.sort(list,new sortById());
 
         //Collections.sort(list,(a,b)->a.id-b.id);
@@ -33,16 +27,25 @@ public class ComparatorAndComparable {
         while(st.hasNext()){
             System.out.println(st.next());
         }
-        System.out.println(new String("FB").hashCode());
-        System.out.println(new String("Ea").hashCode());
+        //System.out.println(new String("FB").hashCode());
+        //System.out.println(new String("Ea").hashCode());
         // System.out.println(list);
     }
 
-    public static class sortById implements Comparator<Student>{
+
+    public static class sortByComparator implements Comparator<Student>{
         @Override
-        public int compare(Student st1, Student st2){
-            return st2.id-st1.id;
-            //return st1.compareTo(st2);
+        public int compare(Student o1, Student o2) {
+            return o1.name.compareTo(o2.name);
+            //return o1.compareTo(o2);
         }
     }
+
+//    public static class sortById implements Comparator<Student>{
+//        @Override
+//        public int compare(Student st1, Student st2){
+//            return st2.id-st1.id;
+//            //return st1.compareTo(st2);
+//        }
+//    }
 }

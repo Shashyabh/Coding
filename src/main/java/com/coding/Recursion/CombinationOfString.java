@@ -8,11 +8,11 @@ public class CombinationOfString {
         String s="abca";
         f(s,"",0);
         List<String> uniqueSubsequences = new ArrayList<>();
-        System.out.println(generateUniqueSubsequencesHelper(s, "", uniqueSubsequences));
+        //System.out.println(generateUniqueSubsequencesHelper(s, "", uniqueSubsequences));
     }
     public static void f(String s, String str,int i){
         if (s.length()==0){
-            System.out.println(str);
+           System.out.print(str+" ");
             return;
         }
         f(s.substring(1),str+s.charAt(0),i+1);

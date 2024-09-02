@@ -1,6 +1,4 @@
-package com.neww;
-
-import java.lang.reflect.Constructor;
+package com.SystemDesign.CreationalDesignPattern.SingeltonDesignPattern;
 
 public class TestSingelton {
 

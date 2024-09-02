@@ -3,14 +3,26 @@ package com.AdvJava.Java8;
 import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class OccurrenceOfEachChar {
 
     public static void main(String[] args) {
 
+
+
+        int [] arr1={1,4,7,3,5};
+        int [] arr2={2,5,6,4,1};
+
+        List<Integer> collect2 = Stream.concat(Arrays.stream(arr1).boxed(), Arrays.stream(arr2).boxed()).distinct().sorted().collect(Collectors.toList());
+        System.out.println(collect2);
+
+        List<Integer> collect3 = IntStream.concat(IntStream.of(arr1), IntStream.of(arr2)).boxed().sorted().distinct().collect(Collectors.toList());
+        System.out.println(collect3);
+
         String str="ilovejavatechie";
         int num[]=new int[26];
-
 
         String [] word=str.split("");
         for(int i=0;i<str.length();i++){
@@ -62,6 +74,10 @@ public class OccurrenceOfEachChar {
 
 
         int [] nums={1,2,7,4,9,1,2,4,4,3,6,3,5};
+        // Reverse the list
+//        Collections.reverse(list);
+        List<int[]> list = Arrays.asList(nums);
+
         Double integer = (double)Arrays.stream(nums).boxed().reduce((a, b) -> a + b).get();
         Double average = Arrays.stream(nums).average().getAsDouble();
         System.out.println("New avg== "+average);
@@ -78,6 +94,8 @@ public class OccurrenceOfEachChar {
         System.out.println(High);
 
         String[] allWords={"java","microservices","springboot","apache","c prog"};
+        List<String> collect1 = Arrays.stream(allWords).map(w -> new StringBuilder(w).reverse().toString()).collect(Collectors.toList());
+        System.out.println("Reverseed String "+collect1);
         String st=Arrays.stream(allWords).reduce((first,second)->first.length()>second.length()?first:second).get();
         System.out.println(st);//microservices
 

@@ -11,15 +11,16 @@ interface Parent2{
     }
 }
 class child implements Parent1,Parent2{
-    public static void main(String[] args) {
-        child c=new child();
-        c.m1();
-        c.show();
-    }
+
     @Override
     public void m1() {
         Parent1.super.m1();
         Parent2.super.m1();
+    }
+    public static void main(String[] args) {
+        child c=new child();
+        c.m1();
+        c.show();
     }
     public void show(){
         Parent1.super.m1();
